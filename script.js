@@ -44,18 +44,48 @@ while (confLength >= 8 && confLength <= 128) {
   };
 }
 
-  // Insert if statement if all criteria are not accepted and another if statment if all criteria are accepted
+  // Insert if statement if all criteria are not chosen and another if statment if all criteria are chosen
   if (!confNumbers && !confSpecialChar && !confUpper && !confLower) {
       alert("You must choose at least one criteria.")
   }
   else if (confNumbers && confSpecialChar && confUpper && confLower) {
-      criteria = number.concat(specialChar,letters,upper);
+      criteria = number.concat(specialChar, letters, upper);
+  }
+  // Add else if statements for if only one criteria is chosen
+  else if (confNumbers) {
+      criteria = number;
+  }
+  else if (confSpecialChar) {
+      criteria = specialChar;
+  }
+  else if (confUpper) {
+      criteria = upper;
+  }
+  else if (confLower) {
+      criteria = letters;
+  }
+  // Add else if statements for if only two criteria are chosen
+  else if (confNumbers && confSpecialChar) {
+      criteria = number.concat(specialChar);
+  }
+  else if (confNumbers && confUpper) {
+      criteria = number.concat(upper);
+  }
+  else if (confNumbers && confLower) {
+      criteria = number.concat(letters);
+  }
+  else if (confSpecialChar && confUpper) {
+      criteria = specialChar.concat(upper);
+  }
+  else if (confSpecialChar && confLower) {
+      criteria = specialChar.concat(letters);
+  }
+  else if (confUpper && confLower) {
+      criteria = upper.concat(letters);
   }
 
-
-
   passwordText.value = password;
-  document.getElementById("password").placeholder = password;
+//   document.getElementById("password").placeholder = password;
 }
 
 // Add event listener to generate button
