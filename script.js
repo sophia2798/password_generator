@@ -79,7 +79,17 @@ for (var i=0; i < confLength; i++) {
   // Have the generatePassword function return the final password string, which will not be equal to the password variable
   return result;
   }
-    passwordText.value = password;
+
+  passwordText.value = password;
+
+  // Add function to copy to clipboard
+  function copyFunc() {
+    var copy = document.getElementById("password").select();
+    document.execCommand("copy");
+    alert("Your random password has been copied to your clipboard!");
+    }
+
+    copy.addEventListener("click", copyFunc);
 }
 
 // Add event listener to generate button
