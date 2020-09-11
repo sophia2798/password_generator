@@ -12,7 +12,7 @@ function writePassword() {
   var letters = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
 
 // Create a variable to store the chosen criteria
-  var criteria;
+  var criteria = [];
 
 // Create function to map letters to uppercase
 
@@ -36,56 +36,49 @@ function writePassword() {
       confLength = parseInt(prompt("You did not choose a number between 8 and 128. Please choose a number between 8 and 128."));
   }
 }
-while (confLength >= 8 && confLength <= 128) {
     var confNumbers = confirm("Would you like your password to have numbers?");
     var confSpecialChar = confirm("Would you like your password to have special characters?");
     var confUpper = confirm("Would you like your password to have uppercase letters?");
     var confLower = confirm("Would you like your passowrd to have lowercase letters?");    
-  };
+
+  // Insert "if" condition if all criteria are not chosen and another if statment if all criteria are chosen
+  while (!confNumbers && !confSpecialChar && !confUpper && !confLower) {
+      alert("You must choose at least one criteria.")
+      var confNumbers = confirm("Would you like your password to have numbers?");
+      var confSpecialChar = confirm("Would you like your password to have special characters?");
+      var confUpper = confirm("Would you like your password to have uppercase letters?");
+      var confLower = confirm("Would you like your passowrd to have lowercase letters?"); 
+  }
+
+  // Create "if" conditions to concatenate the criteria arrays depending on the boolean output of each prompt
+  if (confNumbers) {
+      criteria = criteria.concat(number);
+  }
+  if (confSpecialChar) {
+      criteria = criteria.concat(specialChar);
+  }
+  if (confUpper) {
+      criteria = criteria.concat(upper);
+  }
+  if (confLower) {
+      criteria = criteria.concat(letters);
+  }
+
+  }
+
+  // Create a password of the chosen length and given the chosen criteria
+  var result = [];
+  for (var i=0; i < confLength; i++) {
+      var indChar = criteria[Math.floor(Math.random()*criteria.length)];
+      result.push(indChar);
+  }
+
+  // Have generatePassword function return the array of characters as a string; this sets var password to equal this string
+  return result.join();
+  console.log(password)
 }
 
-  // Insert if statement if all criteria are not chosen and another if statment if all criteria are chosen
-  if (!confNumbers && !confSpecialChar && !confUpper && !confLower) {
-      alert("You must choose at least one criteria.")
-  }
-  else if (confNumbers && confSpecialChar && confUpper && confLower) {
-      criteria = number.concat(specialChar, letters, upper);
-  }
-  // Add else if statements for if only one criteria is chosen
-  else if (confNumbers) {
-      criteria = number;
-  }
-  else if (confSpecialChar) {
-      criteria = specialChar;
-  }
-  else if (confUpper) {
-      criteria = upper;
-  }
-  else if (confLower) {
-      criteria = letters;
-  }
-  // Add else if statements for if only two criteria are chosen
-  else if (confNumbers && confSpecialChar) {
-      criteria = number.concat(specialChar);
-  }
-  else if (confNumbers && confUpper) {
-      criteria = number.concat(upper);
-  }
-  else if (confNumbers && confLower) {
-      criteria = number.concat(letters);
-  }
-  else if (confSpecialChar && confUpper) {
-      criteria = specialChar.concat(upper);
-  }
-  else if (confSpecialChar && confLower) {
-      criteria = specialChar.concat(letters);
-  }
-  else if (confUpper && confLower) {
-      criteria = upper.concat(letters);
-  }
-
   passwordText.value = password;
-//   document.getElementById("password").placeholder = password;
 }
 
 // Add event listener to generate button
