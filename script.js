@@ -6,27 +6,25 @@ function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
-// Create arrays defining numbers, special characters, and letters
-  var number = ["0","1","2","3","4","5","6","7","8","9"];
-  var specialChar = ["!","@","#","$","%","^","&","*","(",")","-","=","_","+","<",">","/","?","`","~",":",";","'","[","]","{","}","|"];
-  var letters = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+  function generatePassword() {
 
-// Create a variable to store the chosen criteria
-  var criteria = [];
+    // Create arrays defining numbers, special characters, and letters
+    var number = ["0","1","2","3","4","5","6","7","8","9"];
+    var specialChar = ["!","@","#","$","%","^","&","*","(",")","-","=","_","+","<",">","/","?","`","~",":",";","'","[","]","{","}","|"];
+    var letters = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
 
-// Create function to map letters to uppercase
+    // Create function to map letters to uppercase
 
     var toUpper = function(x) {
         return x.toUpperCase();
-     }
-  
-  var upper = letters.map(toUpper);
-  console.log(upper)
+    }
 
-  function generatePassword() {
-// Turn the type of the lenght prompt from a string to a number
-  var confLength = parseInt(prompt("How many characters would you like your password to be? You can choose between 8 and 128."));
-// Create an if statement that shows alerts if the input is less than 8 or greater than 128, another alert if it is left blank, or continues with prompts if a number between 8 and 128 is input
+    var upper = letters.map(toUpper);
+    console.log(upper)
+
+    // Turn the type of the lenght prompt from a string to a number
+    var confLength = parseInt(prompt("How many characters would you like your password to be? You can choose between 8 and 128."));
+    // Create an if statement that shows alerts if the input is less than 8 or greater than 128, another alert if it is left blank, or continues with prompts if a number between 8 and 128 is input
   while (confLength < 8 || confLength > 128 || !confLength) {
     if (!confLength) {
       alert("You must input a value.")
@@ -51,8 +49,13 @@ function writePassword() {
   }
 
   // Create "if" conditions to concatenate the criteria arrays depending on the boolean output of each prompt
+  
+  // Define an empty array to store the chosen criteria
+  var criteria = [];
+ 
   if (confNumbers) {
       criteria = criteria.concat(number);
+      console.log(criteria);
   }
   if (confSpecialChar) {
       criteria = criteria.concat(specialChar);
@@ -64,21 +67,19 @@ function writePassword() {
       criteria = criteria.concat(letters);
   }
 
+  console.log(criteria);
+
+  // Create emtpy string to store each the individual characters as the "for" loop runs
+  var result = "";
+
+for (var i=0; i < confLength; i++) {
+      result = result + criteria[Math.floor(Math.random()*criteria.length)];
   }
-
-  // Create a password of the chosen length and given the chosen criteria
-  var result = [];
-  for (var i=0; i < confLength; i++) {
-      var indChar = criteria[Math.floor(Math.random()*criteria.length)];
-      result.push(indChar);
+  console.log(result);
+  // Have the generatePassword function return the final password string, which will not be equal to the password variable
+  return result;
   }
-
-  // Have generatePassword function return the array of characters as a string; this sets var password to equal this string
-  return result.join();
-  console.log(password)
-}
-
-  passwordText.value = password;
+    passwordText.value = password;
 }
 
 // Add event listener to generate button
