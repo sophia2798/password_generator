@@ -67,32 +67,37 @@ function generatePassword() {
   
   // Define an empty array to store the chosen criteria
   var criteria = [];
+  // The minimum criteria will create a string of at least one character from each chosen string so the final password is ensured to have at least one of each chosen criteria
   var minimum = "";
  
   if (confNumbers) {
-    //   console.log(number);
+      minimum = minimum.concat(number[Math.floor(Math.random()*number.length)]);
       criteria = criteria.concat(number);
   }
   if (confSpecialChar) {
+    minimum = minimum.concat(specialChar[Math.floor(Math.random()*specialChar.length)]);
       criteria = criteria.concat(specialChar);
   }
   if (confUpper) {
+    minimum = minimum.concat(upper[Math.floor(Math.random()*upper.length)]);
       criteria = criteria.concat(upper);
   }
   if (confLower) {
+    minimum = minimum.concat(letters[Math.floor(Math.random()*letters.length)]);
       criteria = criteria.concat(letters);
   }
   console.log(criteria)
+  console.log(minimum);
 
   // Create emtpy string to store each the individual characters as the "for" loop runs
   var result = "";
 
-for (var i=0; i < confLength; i++) {
+for (var i=0; i < (confLength - minimum.length); i++) {
       result = result + criteria[Math.floor(Math.random()*criteria.length)];
   }
   console.log(result);
   // Have the generatePassword function return the final password string, which will not be equal to the password variable
-  return result;
+  return result.concat(minimum);
 
 }
 
