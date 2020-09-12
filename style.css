@@ -13,8 +13,9 @@ body,
 }
 
 body {
-  font-family: sans-serif;
+  font-family: "Rock Salt", cursive;
   background-color: #f9fbfd;
+  background-image: url("https://image.freepik.com/free-vector/seamless-stuffed-pizza_257845-102.jpg");
 }
 
 .wrapper {
@@ -31,7 +32,7 @@ header {
 }
 
 .card {
-  background-color: hsl(0, 0%, 100%);
+  background-color: hsl(0, 0%, 100%, 0.9);
   border-radius: 5px;
   border-width: 1px;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px 0px;
@@ -40,6 +41,36 @@ header {
   margin: 0 auto;
   max-width: 800px;
   padding: 30px 40px;
+  border: 10px double orangered;
+}
+
+.column {
+    float: left;
+    width: 25%;
+    position: relative;
+    /* padding-left: 82px; */
+    margin-top: 10px;
+}
+.column2 {
+    float: left;
+    width: 25%;
+    position: relative;
+    font-size: 15px;
+    text-align: center;
+    font-family: 'Sofia', cursive;
+    font-weight: bolder;
+    margin-bottom: 10px;
+}
+
+.subheader {
+    text-align: center; 
+    font-family: 'Coming Soon',cursive; 
+    margin: 5px auto;
+    font-weight: bold;
+}
+
+.length {
+    text-align: center;
 }
 
 .card-header::after {
@@ -48,6 +79,86 @@ header {
   width: 100%;
   background: #e7e9eb;
   height: 2px;
+}
+
+.card-length::after {
+  content: " ";
+  display: block;
+  width: 100%;
+  background: #e7e9eb;
+  height: 2px;
+}
+
+.switch {
+    position: relative;
+    margin-left: 40%;
+    display: inline-block;
+    width: 30px;
+    height:17px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: black;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 13px;
+    width: 13px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: #2196F3;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(13px);
+    -ms-transform: translateX(13px);
+    transform: translateX(13px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+
+#password::placeholder{
+    font-family: "Coming Soon", cursive;
+}
+
+#password {
+    font-family: 'Coming Soon', cursive;
+    letter-spacing: 1px;
+    font-weight: bold;
 }
 
 .card-body {
@@ -74,7 +185,7 @@ header {
 
 .btn {
   border: none;
-  background-color: hsl(360, 91%, 36%);
+  background-color: hsl(12, 100%, 36%);
   border-radius: 25px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px
     0px;
@@ -86,10 +197,12 @@ header {
   padding: 14px 34px;
   text-align: center;
   cursor: pointer;
+  font-family: 'Rock Salt', cursive;
+  font-weight: bold;
 }
 
 .btn:hover {
-    background-color: hsl(360, 61%, 36%)
+    background-color: hsl(15, 100%, 25%)
 }
 
 button[disabled] {

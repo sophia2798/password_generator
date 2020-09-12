@@ -5,22 +5,70 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Password Generator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Coming+Soon&family=Rock+Salt&family=Sofia&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div class="wrapper">
       <header>
-        <h1>Password Generator</h1>
+        <h1>Create Your Own Password Pizza!</h1>
       </header>
       <div class="card">
         <div class="card-header">
-          <h2>Generate a Password</h2>
+          <h2 style="font-size: 18px; text-align: center">Create your own randomly generated and unique password pizza! Choose your pizza size and your toppings!</h2>
+        </div>
+        <div class="card-length">
+            <div class="subheader">
+                What Size Would You Like? Choose a Number Between 8 and 128.
+            </div>  
+            <div class="length">
+                <form>
+                    <input style="font-family:'Coming Soon', cursive; font-weight: bold" id="charLength" />
+                </form>
+            </div>
+        </div>
+        <div class="card-toppings">
+            <div class="subheader">
+                What Toppings Would You Like?
+            </div>
+            <div class="toppings">
+                <div class="column">
+                    <label class="switch">
+                        <input type="checkbox" id="num-switch" />
+                        <span class = "slider round"></span>
+                    </label>
+                </div>
+                <div class="column">
+                    <label class="switch">
+                        <input type="checkbox" id="special-switch" />
+                        <span class = "slider round"></span>
+                    </label>
+                </div>
+                <div class="column">
+                    <label class="switch">
+                        <input type="checkbox" id="upper-switch" />
+                        <span class = "slider round"></span>
+                    </label>
+                </div>
+                <div class="column">
+                    <label class="switch">
+                        <input type="checkbox" id="lower-switch" />
+                        <span class = "slider round"></span>
+                    </label>
+                </div>
+            </div>
+            <div class="captions">
+                <div class="column2">Would You Like Numbers?</div>
+                <div class="column2">Would You Like Special Characters?</div>
+                <div class="column2">Would You Like Uppercase Letters?</div>
+                <div class="column2">Would You Like Lowercase Letters?</div>
+            </div>
         </div>
         <div class="card-body">
           <textarea
             readonly
             id="password"
-            placeholder="Your Secure Password"
+            placeholder="Your Secure Password Pizza"
             aria-label="Generated Password"
           ></textarea>
         </div>
@@ -30,6 +78,6 @@
         </div>
       </div>
     </div>
-    <script src="script.js"></script>
+    <script src="script2.js"></script>
   </body>
 </html>
