@@ -23,7 +23,7 @@ To install this repository, you can git clone the repository using the green "Co
 
 ## Usage
 
-This project can be used to generate random passwords given the four aforementioned criterium. It can also be used as a template to explore the use of conditional statements, nesting, proper variable and function assignments, and dyanmic programming. 
+This project can be used to generate random passwords given the four aforementioned criterium. It can also be used as a template to explore the use of conditional statements, nesting, proper variable and function assignments, and dyanmic programming.
 
 Studying the HTMl and JavaScript code can also help one familiarize themselves with DOM layouts and standards. 
 
@@ -48,3 +48,5 @@ Studying the HTMl and JavaScript code can also help one familiarize themselves w
 - [W3 Schools](https://www.w3schools.com/default.asp) 
 
 - [Stack Overflow](https://stackoverflow.com/)
+
+- [Background Picture](https://image.freepik.com/free-vector/seamless-stuffed-pizza_257845-102.jpg)
