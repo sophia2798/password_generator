@@ -29,6 +29,8 @@ Studying the HTMl and JavaScript code can also help one familiarize themselves w
 
 ## Features
 
+Screenshots are shown before the secondary styling that can be seen on the deployed page and the GIF above.
+
 - A text box, working buttons that initailize JavaScript functions, and proper styling
 ![alt-text](./assets/initial.png "Initial Page")
 - Prompts for user chosen criterium
