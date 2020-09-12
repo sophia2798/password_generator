@@ -67,8 +67,10 @@ function generatePassword() {
   
   // Define an empty array to store the chosen criteria
   var criteria = [];
+  var minimum = "";
  
   if (confNumbers) {
+    //   console.log(number);
       criteria = criteria.concat(number);
   }
   if (confSpecialChar) {
@@ -95,7 +97,7 @@ for (var i=0; i < confLength; i++) {
 }
 
   passwordText.value = password;
-  if (confLower === false && confSpecialChar === false && confUpper === false && confLower === false) {
+  if (confNumbers === false && confSpecialChar === false && confUpper === false && confLower === false) {
     passwordText.value = "You must pick at least one topping!";
     }
 
